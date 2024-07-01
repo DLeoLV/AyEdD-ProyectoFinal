@@ -12,11 +12,4 @@ public class NodeControl : MonoBehaviour
         int randomPosition = Random.Range(0, allAdjacentNodes.Length);
         return allAdjacentNodes[randomPosition];
     }
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            other.GetComponent<EnemyControl>().Cooldown(weight);
-        }
-    }
 }

@@ -8,14 +8,14 @@ public class EnemyControl : MonoBehaviour
     public float cooldown;
     private float step;
     public NodeControl currentNodeToMove;
-    public float energy;
-    // Start is called before the first frame update
+    public float energy = 15f;
+
     void Start()
     {
-        energy = 10f;
+        energy = 15f;
+        currentNodeToMove = FindObjectOfType<NodeControl>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         step = speed * Time.deltaTime;
@@ -25,11 +25,11 @@ public class EnemyControl : MonoBehaviour
             speed = 0;
             cooldown = cooldown + Time.deltaTime;
         }
-        if (cooldown > 3)
+        if (cooldown > 1)
         {
-            speed = 10f;
+            speed = 15f;
             cooldown = 0;
-            energy = 10f;
+            energy = 1f;
         }
     }
 
@@ -43,15 +43,12 @@ public class EnemyControl : MonoBehaviour
         if(collision.gameObject.tag == "Node")
         {
             SelectNextNodePosition();
+            energy = 0;
         } 
     }
 
     public void SetInitialNodeToMove(NodeControl initialNode)
     {
         currentNodeToMove = initialNode;
-    }
-    public void Cooldown(int weight)
-    {
-        energy = energy - weight;
     }
 }

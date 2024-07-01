@@ -6,7 +6,7 @@ public class MovimientoFlechas : MonoBehaviour
 {
     public float vel = 5f;
 
-    void Update()
+    void FixedUpdate()
     {
         float movimientoHorizontal = Input.GetAxis("Horizontal");
         float movimientoVertical = Input.GetAxis("Vertical");
