@@ -9,6 +9,14 @@ public class AdministradorDeEscenas : MonoBehaviour
     {
         SceneManager.LoadScene("Juego");
     }
+    public void CargarMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    public void CargarAyuda()
+    {
+        SceneManager.LoadScene("Ayuda");
+    }
     public void CerrarJuego()
     {
         Application.Quit();
