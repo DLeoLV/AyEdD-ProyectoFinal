@@ -10,6 +10,7 @@ public class EnemyControl : MonoBehaviour
     public NodeControl currentNodeToMove;
     public float energy = 15f;
     public GameObject NodoInicial;
+    public int vida = 12;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class EnemyControl : MonoBehaviour
         {
             NodoInicial = GameObject.Find("Nodo (32)");
         }
-        else if (randomNumber == 4)
+        else if(randomNumber == 4)
         {
             NodoInicial = GameObject.Find("Nodo (21)");
         }
@@ -44,16 +45,23 @@ public class EnemyControl : MonoBehaviour
     {
         step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, currentNodeToMove.transform.position, step);
+
         if(energy <= 0)
         {
             speed = 0;
             cooldown = cooldown + Time.deltaTime;
         }
-        if (cooldown > 1)
+
+        if(cooldown > 1)
         {
             speed = 15f;
             cooldown = 0;
             energy = 1f;
+            vida = vida - 1;
+            if (vida <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -62,13 +70,13 @@ public class EnemyControl : MonoBehaviour
         currentNodeToMove = currentNodeToMove.ChooseRandomAdjacentNode();
     }
 
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Node")
         {
             SelectNextNodePosition();
             energy = 0;
-        } 
+        }
     }
 
     public void SetInitialNodeToMove(NodeControl initialNode)
