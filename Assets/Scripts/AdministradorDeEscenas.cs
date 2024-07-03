@@ -22,3 +22,4 @@ public class AdministradorDeEscenas : MonoBehaviour
         Application.Quit();
     }
 }
+//Las funciones se ejecutan una vez y solo cuando el usuario las llama, por ende es O(1) 

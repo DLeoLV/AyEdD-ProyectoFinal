@@ -159,3 +159,4 @@ public class ListaSimple : MonoBehaviour
         }
     }
 }
+//La lista tiene funciones que necesitan recorrer todo el arreglo, es O(n)

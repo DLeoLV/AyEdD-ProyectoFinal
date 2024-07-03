@@ -38,3 +38,4 @@ public class AlgoritmoOrdenador : MonoBehaviour
         }
     }
 }
+//Al haber un for con un while dentro es un Tiempo Asintotico de O(n^2) 

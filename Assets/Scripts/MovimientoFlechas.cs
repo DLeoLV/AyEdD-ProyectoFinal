@@ -13,6 +13,7 @@ public class MovimientoFlechas : MonoBehaviour
 
         Vector3 movimiento = new Vector2(movimientoHorizontal, movimientoVertical) * vel * Time.deltaTime;
 
-        transform.position += movimiento;
+        transform.position = transform.position + movimiento;
     }
 }
+//Aunque use update cada fotograma, el codigo sigue ejecutandose solo una vez por lo que: O(1);

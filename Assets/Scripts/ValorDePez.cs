@@ -57,3 +57,4 @@ public class ValorDePez : MonoBehaviour
         }
     }
 }
+//El codigo solo asigna valores y detecta una colision, solo se ejecuta una vez: O(1) 
