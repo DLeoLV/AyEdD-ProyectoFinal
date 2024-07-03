@@ -53,7 +53,6 @@ public class ValorDePez : MonoBehaviour
             Debug.Log("Mi ID es: " + IDpez);
             lista.ListInt.InsertAtStart(IDpez);
             lista.ListInt.MostrarValores();
-
             Destroy(this.gameObject);
         }
     }

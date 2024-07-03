@@ -9,11 +9,35 @@ public class EnemyControl : MonoBehaviour
     private float step;
     public NodeControl currentNodeToMove;
     public float energy = 15f;
+    public GameObject NodoInicial;
 
     void Start()
     {
+        int randomNumber = Random.Range(0, 5);
+        if(randomNumber == 0)
+        {
+            NodoInicial = GameObject.Find("Nodo (1)");
+        }
+        else if(randomNumber == 1)
+        {
+            NodoInicial = GameObject.Find("Nodo (24)");
+        }
+        else if(randomNumber == 2)
+        {
+            NodoInicial = GameObject.Find("Nodo (29)");
+        }
+        else if(randomNumber == 3)
+        {
+            NodoInicial = GameObject.Find("Nodo (32)");
+        }
+        else if (randomNumber == 4)
+        {
+            NodoInicial = GameObject.Find("Nodo (21)");
+        }
+
+        transform.position = new Vector3(NodoInicial.transform.position.x + 1, NodoInicial.transform.position.y + 1, 3);
+        currentNodeToMove = NodoInicial.GetComponent<NodeControl>();
         energy = 15f;
-        currentNodeToMove = FindObjectOfType<NodeControl>();
     }
 
     void Update()
